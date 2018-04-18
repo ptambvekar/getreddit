@@ -3,9 +3,44 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Reddit-Business News</title>
+<script>
+(function($){
+	
+	let after=0;
+	let limit=5;
+	function getPosts(){
+	
+		var data={
+			limit:limit
+		}
+		$.ajax({
+		url:'https://www.reddit.com/r/business/new.json',
+		type:'get',
+		data:data,
+		dataType:'json',
+		success:function(response){
+		var data=response.data;
+		after=data.after; // this should be sent in the request for next page
+		var children = data.children;
+		children.forEach(function(post){
+		let data=post.data;
+		console.log('title->',data.title);
+		console.log('comments',data.num_comments);
+		console.log('author',data.author);
+		});
+		},
+		error:function(response){
+			
+		}
+		});
+	}
+	
+	getPosts();
+	
+})(jQuery);
 
+</script>
 </head>
 <body>
-
 </body>
 </html>
