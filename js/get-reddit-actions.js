@@ -53,7 +53,7 @@ $(function(){
 		children.length > 0 && container.children().remove(); // remove existing posts if new posts are available from the API call
 		children.forEach(function(post){
 			let data=post.data;
-			var posts='<div class="card bg-light text-center card-adjust shadow"> <div class="card-body">   <p class="card-text">'+data.title+'   </p> </div>   <div class="card-footer">   <div class = "row">       <div class = "col-sm-6 col-md-6 col-xs-12"> <a href="http://www.reddit.com'+data.permalink+'" target="_blank">'+data.num_comments+' comments</a></div> <div class = "col-sm-6 col-md-6 col-xs-12 text-muted"> Submitted by '+data.author+'</div>   </div> </div> </div>'
+			var posts='<div class="card bg-light text-center card-adjust shadow"> <div class="card-body">   <p class="card-text">'+data.title+'   </p> </div>   <div class="card-footer"><div class="row"> <div class = "col-sm-6 col-md-6 col-xs-12 text-muted"> <a class="card-link" href="http://www.reddit.com'+data.permalink+'" target="_blank">'+data.num_comments+' comments</a></div><div class = "col-sm-6 col-md-6 col-xs-12 text-muted"> Submitted by '+data.author+'</div> </div> </div>  </div>'
 			container.append(posts)
 		});
 	}
