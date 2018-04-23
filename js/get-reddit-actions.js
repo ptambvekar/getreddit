@@ -29,7 +29,7 @@ $(function(){
 			return; 
 		}
 		$.ajax({
-		url:'https://www.reddit.com/r/business/new.json',
+		url:'https://www.reddit.com/r/business.json',
 		type:'get',
 		data:data,
 		dataType:'json',
