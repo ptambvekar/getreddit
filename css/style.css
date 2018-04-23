@@ -1,0 +1,59 @@
+h2 {
+	width: 100%;
+	text-align: center;
+	border-bottom: 4px solid rgb(230, 230, 230);
+	line-height: 0.1em;
+	margin: 10px 0 20px;
+}
+
+h2 span {
+	background: #fff;
+	padding: 0 10px;
+}
+
+.top-adjust {
+	margin-top: 2%;
+}
+
+.width-adjust {
+	width: 50%;
+}
+
+.body-color {
+	/* background-color: rgb(230, 230, 230); */
+	background-image:url('../images/pw_maze_white.png')
+}
+
+.main-color {
+	background-color: white;
+}
+
+.card-adjust {
+	margin: 0 auto; /* Added */
+	width: 80%;
+	float: none; /* Added */
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.card-header-adjust {
+	background-color: white;
+	border: none !important;
+	margin-top: 2%;
+}
+
+.shadow {
+	-webkit-box-shadow: 0px 12px 6px -6px rgb(230, 230, 230);
+	-moz-box-shadow: 0px 12px 6px -6px rgb(230, 230, 230);
+	box-shadow: 0px 12px 6px -6px rgb(230, 230, 230);
+}
+
+.img-adjust {
+	width: 3%;
+	margin: 2% auto 2% auto;
+	cursor:pointer;
+}
+
+img.disabled{
+	opacity:0.5;
+}

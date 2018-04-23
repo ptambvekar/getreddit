@@ -13,6 +13,28 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
+<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="body-color">
+
+	<main role="main" class="container-fluid width-adjust top-adjust">
+	<div class="card">
+
+		<div class="card-header card-header-adjust">
+			<h2 class>
+				<span> r/Business </span>
+			</h2>
+		</div>
+
+		<img src="./images/upCircle.png" class="img-adjust" id="upArrow"/>
+		<div id="postContainer"> </div>
+		<img src="./images/downCircle.png" class="img-adjust" id="downArrow"/>
+	</div>
+
+	</main>
+</body>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
@@ -23,132 +45,5 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
-
-<script>
-(function($){
-	
-	let after=0;
-	let limit=3;
-	function getPosts(after){
-	
-		var data={
-			limit:limit
-		}
-		if(after!==0){
-			data['after']=after
-		}
-		$.ajax({
-		url:'https://www.reddit.com/r/business/new.json',
-		type:'get',
-		data:data,
-		dataType:'json',
-		success:function(response){
-		var data=response.data;
-		after=data.after; // this should be sent in the request for next page
-		var children = data.children;
-		children.forEach(function(post){
-		let data=post.data;
-		console.log('title->',data.title);
-		console.log('comments',data.num_comments);
-		console.log('author',data.author);
-		
-		var container=$('#postContainer');
-		
-		var posts='<div class="card bg-light text-center card-adjust shadow"> <div class="card-body">   <p class="card-text">'+data.title+'   </p> </div>   <div class="card-footer">   <div class = "row">       <div class = "col-sm-6 col-md-6 col-xs-12 text-info">'+data.num_comments+' comments</div> <div class = "col-sm-6 col-md-6 col-xs-12 text-muted"> Submitted by '+data.author+'</div>   </div> </div> </div>'
-		container.append(posts)
-
-		});
-		},
-		error:function(response){
-			
-		}
-		});
-	}
-	
-	getPosts(0);
-	
-
-
-	
-})(jQuery);
-
-</script>
-
-</head>
-
-<style>
-h2 {
-	width: 100%;
-	text-align: center;
-	border-bottom: 4px solid rgb(230, 230, 230);
-	line-height: 0.1em;
-	margin: 10px 0 20px;
-}
-
-h2 span {
-	background: #fff;
-	padding: 0 10px;
-}
-
-.top-adjust {
-	margin-top: 2%;
-}
-
-.width-adjust {
-	width: 50%;
-}
-
-.body-color {
-	background-color: rgb(230, 230, 230);
-}
-
-.main-color {
-	background-color: white;
-}
-
-.card-adjust {
-	margin: 0 auto; /* Added */
-	width: 80%;
-	float: none; /* Added */
-	margin-top: 2%;
-	margin-bottom: 2%;
-}
-
-.card-header-adjust {
-	background-color: white;
-	border: none !important;
-	margin-top: 2%;
-}
-
-.shadow {
-	-webkit-box-shadow: 0px 12px 6px -6px rgb(230, 230, 230);
-	-moz-box-shadow: 0px 12px 6px -6px rgb(230, 230, 230);
-	box-shadow: 0px 12px 6px -6px rgb(230, 230, 230);
-}
-
-.img-adjust {
-	width: 3%;
-	margin: 2% auto 2% auto;
-}
-</style>
-
-<body class="body-color">
-
-	<main role="main" class="container-fluid width-adjust top-adjust">
-
-	<div class="card">
-
-		<div class="card-header card-header-adjust">
-			<h2 class>
-				<span> r/Business </span>
-			</h2>
-		</div>
-
-		<img src="upCircle.png" class="img-adjust" />
-		<div id="postContainer"> </div>
-		<img src="downCircle.png" class="img-adjust" />
-	</div>
-
-	</main>
-</body>
+<script src="./js/get-reddit-actions.js"></script>
 </html>
